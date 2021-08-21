@@ -6,6 +6,7 @@ class Contacts extends Component {
    
      ContactDeleted(id){
          const {contacts} = this.state  ;
+         // filter on list by id
          const newListContacts = contacts.filter((contact)=>contact.id!== id)  ; 
          this.setState(
              {contacts:newListContacts}

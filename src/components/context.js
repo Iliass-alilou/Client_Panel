@@ -22,6 +22,7 @@ export class Provider extends Component {
             {id:2, name:"iliass1",tel:"0611810810", email:"iliass12@gmail.com"},
             {id:3, name:"iliass2",tel:"0611810811", email:"iliass13@gmail.com"},
         ],
+        //detect l'action that I want to execute in reduce 
         dispatch : action => this.setState(state => reducer(state,action))
      }
 

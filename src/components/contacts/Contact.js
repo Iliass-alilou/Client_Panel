@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Consumer } from '../context';
 import "./contact.css"
+import { Consumer } from '../context';
+
+
 class Contact extends Component {
     state = {
         showContactToggel : true
@@ -11,8 +13,11 @@ class Contact extends Component {
             showContactToggel: !this.state.showContactToggel
         });
     }
-    onDeletClick = () =>{
-        
+    onDeletClick = (id , dispatch) =>{
+       dispatch({
+           type: 'DELETE_CONTACT',
+           payload : id
+       })
     }
    
     render() {
@@ -31,8 +36,7 @@ class Contact extends Component {
                              className="fa fa-sort-down">                           
                           </i>
                           <i onClick={this.onDeletClick.bind(this,id,dispatch)} 
-                             style={{color:'red',
-                             float:'right', cursor:'pointer'}} 
+                             style={{color:'red', float:'right', cursor:'pointer'}} 
                              className="fa fa-times" aria-hidden="true"> 
                           </i>
                       </h4>
