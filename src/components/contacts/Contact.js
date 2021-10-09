@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import "./contact.css"
 import { Consumer } from '../context';
-
+import PropTypes from 'prop-types';
 
 class Contact extends Component {
     state = {
@@ -21,7 +21,7 @@ class Contact extends Component {
     }
    
     render() {
-        const {id,name,tel,email}=this.props.data;
+        const {id,name,phone,email}=this.props.data;
         return(
             <Consumer>
             {value =>{
@@ -42,7 +42,7 @@ class Contact extends Component {
                       </h4>
                       {(this.state.showContactToggel)?(
                               <ul className="list-group">                            
-                                  <li className="list-group-item">{tel}</li>
+                                  <li className="list-group-item">{phone}</li>
                                   <li className="list-group-item">{email}</li>
                               </ul>
                           ):null}
@@ -59,8 +59,13 @@ class Contact extends Component {
 
 Contact.defaultProps={
     name: "name",
-    tel : "06xxxxxxx",
-    email : "ton email"
+    phone : "06xxxxxxx",
+    email : "your email"
 }
+// Contact.prototype = {
+//     name : PropTypes.string.isRequired,
+//     tel : PropTypes.string,
+//     email : PropTypes.string
+// }
 
 export default  Contact;

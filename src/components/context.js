@@ -10,6 +10,10 @@ const reducer=(state , action) => {
             return{
                 contacts:state.contacts.filter((contact)=>contact.id!==action.payload)  
             };
+        case  'Add_CONTACT':
+            return{
+                contacts:[action.payload , ...state.contacts]  
+            };
         default:
             return state
     }
@@ -18,9 +22,9 @@ const reducer=(state , action) => {
 export class Provider extends Component {
     state = { 
         contacts : [
-            {id:1, name:"iliass",tel:"0611810809", email:"iliass11@gmail.com"},
-            {id:2, name:"iliass1",tel:"0611810810", email:"iliass12@gmail.com"},
-            {id:3, name:"iliass2",tel:"0611810811", email:"iliass13@gmail.com"},
+            {id:1, name:"iliass",phone:"0611810809", email:"iliass11@gmail.com"},
+            {id:2, name:"iliass1",phone:"0611810810", email:"iliass12@gmail.com"},
+            {id:3, name:"iliass2",phone:"0611810811", email:"iliass13@gmail.com"},
         ],
         //detect l'action that I want to execute in reduce 
         dispatch : action => this.setState(state => reducer(state,action))
